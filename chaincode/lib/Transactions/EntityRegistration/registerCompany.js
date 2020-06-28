@@ -27,6 +27,7 @@ async function registerCompany(ctx, companyCRN, companyName, Location, organisat
                companyID: ctx.registeredCompanyList.getCompositeKey(companyKey),
                name: companyName,
                location: Location,
+               companyCRN:companyCRN,
                organisationRole: organisationRole,
                hierarchyKey: organisationRole != 'Transporter' ? OrganisationRole[organisationRole] : null
           }

@@ -1,7 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body { height: 100%;overflow: hidden; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
+
+.snackBarCustom{
+    background: #ff4081;
+    color: white;
+    .mat-simple-snackbar{
+        font-weight: 500;
+    }
+    .mat-button-wrapper{
+        font-weight: 600;
+    }
+    .mat-simple-snackbar-action{
+        color: white;
+    }
+}

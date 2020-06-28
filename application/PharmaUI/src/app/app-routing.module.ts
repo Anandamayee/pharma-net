@@ -1,14 +1,15 @@
+import { LoginComponent } from './../Components/login/login.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { UserRegistrationComponent } from './user-registration/user-registration.component';
-import { AddDrugComponent } from './add-drug/add-drug.component';
-import { CreatePoComponent } from './create-po/create-po.component';
-import { CreateShipmentComponent } from './create-shipment/create-shipment.component';
-import { UpdateShipmentComponent } from './update-shipment/update-shipment.component';
-import { RetailDrugComponent } from './retail-drug/retail-drug.component';
-import { ViewDrugHistoryComponent } from './view-drug-history/view-drug-history.component';
-import { ViewDrugDetailsComponent } from './view-drug-details/view-drug-details.component';
-import { DashBoardComponent } from './dash-board/dash-board.component';
+import { UserRegistrationComponent } from '../Components/user-registration/user-registration.component';
+import { AddDrugComponent } from '../Components/add-drug/add-drug.component';
+import { CreatePoComponent } from '../Components/create-po/create-po.component';
+import { CreateShipmentComponent } from '../Components/create-shipment/create-shipment.component';
+import { UpdateShipmentComponent } from '../Components/update-shipment/update-shipment.component';
+import { RetailDrugComponent } from '../Components/retail-drug/retail-drug.component';
+import { ViewDrugHistoryComponent } from '../Components/view-drug-history/view-drug-history.component';
+import { ViewDrugDetailsComponent } from '../Components/view-drug-details/view-drug-details.component';
+import { DashBoardComponent } from '../Components/dash-board/dash-board.component';
 
 
 const routes: Routes = [
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     component: UserRegistrationComponent,
     path: 'userRegistration'
+  },
+  {
+    component: LoginComponent,
+    path: 'login'
   },
   {
     component: AddDrugComponent,

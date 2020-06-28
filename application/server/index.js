@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const port = 3000;
+const errorToJSON = require('error-to-json')
 
 // Import all function modules
 const addToWallet = require('./module/addToWallet');
@@ -13,6 +14,7 @@ const createPO = require('./module/createPO');
 const retailDrug = require('./module/retailDrug');
 const viewDrugDetails = require('./module/viewDrugDetails');
 const viewDrugHistory = require('./module/viewDrugHistory');
+const getAllCompanyCRNs=require('./module/getAllCompanyCRNs')
 
 // Define Express app settings
 app.use(cors());
@@ -71,12 +73,11 @@ app.post('/addDrug', (req, res) => {
 
 app.post('/registerCompany', (req, res) => {
 	registerCompany.execute(req.body.companyCRN, req.body.companyName, req.body.Location, req.body.organisationRole)
-			.then((comapny) => {
-				console.log('Your company has successfully registered');
+			.then((company) => {
 				const result = {
 					status: 'success',
-					message: 'Your company has successfully registered',
-					comapny: comapny
+					message: 'Congratulations!!! Your company has successfully registered',
+					company: company
 				};
 				res.json(result);
 			})
@@ -220,6 +221,27 @@ app.get('/viewDrugDetails', (req, res) => {
 					status: 'success',
 					message: 'Drug details',
 					drugDetail: drug
+				};
+				res.json(result);
+			})
+			.catch((e) => {
+				const result = {
+					status: 'error',
+					message: 'Failed',
+					error: e
+				};
+				res.status(500).send(result);
+			});
+});
+
+app.get('/getRegisteredCompanyCRN', (req, res) => {
+	getAllCompanyCRNs.execute()
+			.then((users) => {
+				console.log('users',users);
+				const result = {
+					status: 'success',
+					message: 'users',
+					users: users
 				};
 				res.json(result);
 			})

@@ -1,0 +1,139 @@
+<div *ngIf="showSpinner" class="mat-drawer-backdrop ng-star-inserted mat-drawer-shown">
+    <mat-spinner class="spinnerClass"  strokeWidth="5"></mat-spinner>
+</div>
+
+<mat-card *ngIf="!sucessResponse;else responseField">
+    <mat-card-header>
+        <mat-card-title>Register Your Company</mat-card-title>
+    </mat-card-header>
+    <form [formGroup]="companyRegistration" (ngSubmit)="showSpinner=true;onSubmit(companyRegistration.value)">
+        <mat-vertical-stepper #stepper class="stepperVertical">
+            <mat-card-content>
+                <mat-step stepControl="companyRegistration.controls.companyName">
+                    <ng-template matStepLabel>Enter Your Company Name</ng-template>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Comapany Name</mat-label>
+                        <input matInput placeholder="Company Name" type="text" formControlName="companyName" required>
+                        <mat-error *ngIf="companyRegistration.controls.companyName.hasError('required')">Please enter
+                            company name!!</mat-error>
+                    </mat-form-field>
+                    <div>
+                        <button mat-raised-button color="accent" type="button" matStepperNext>Next</button>
+                    </div>
+                </mat-step>
+                <mat-step stepControl="companyRegistration.controls.companyCRN">
+                    <ng-template matStepLabel>Enter Your Company CRN</ng-template>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Comapany CRN</mat-label>
+                        <input matInput placeholder="Company CRN" type="text" formControlName="companyCRN" required>
+                        <mat-error *ngIf="companyRegistration.controls.companyCRN.hasError('required')">Please enter
+                            CRN!!</mat-error>
+                    </mat-form-field>
+                    <div>
+                        <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+                        <button mat-raised-button color="accent" type="button" matStepperNext>Next</button>
+                    </div>
+                </mat-step>
+                <mat-step stepControl="companyRegistration.controls.Location">
+                    <ng-template matStepLabel>Enter Your Company Location</ng-template>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Location</mat-label>
+                        <input matInput placeholder="Location" type="text" formControlName="Location" required>
+                        <mat-error *ngIf="companyRegistration.controls.Location.hasError('required')">Please enter
+                            Location!!</mat-error>
+                    </mat-form-field>
+                    <div>
+                        <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+                        <button mat-raised-button color="accent" type="button" matStepperNext>Next</button>
+                    </div>
+                </mat-step>
+                <mat-step stepControl="companyRegistration.controls.organisationRole">
+                    <ng-template matStepLabel>Enter Organisation Role</ng-template>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Organisation Role</mat-label>
+                        <mat-select formControlName="organisationRole" required>
+                            <mat-option *ngFor="let roles of organisationRoles" [value]="roles">
+                                {{roles}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="companyRegistration.controls.organisationRole.hasError('required')">Please
+                            select a organisationRole!!</mat-error>
+                    </mat-form-field>
+                    <div>
+                        <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+                        <button mat-raised-button color="accent" type="button" matStepperNext>Next</button>
+                    </div>
+                </mat-step>
+                <mat-step stepControl="companyRegistration.controls.password">
+                    <ng-template matStepLabel>Enter Your Password</ng-template>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Password</mat-label>
+                        <input matInput placeholder="Password" [type]="passwordHide ? 'password' : 'text'"
+                            formControlName="password" required>
+                        <button mat-icon-button matSuffix (click)="passwordHide = !passwordHide"
+                            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="passwordHide">
+                            <mat-icon>{{passwordHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="companyRegistration.controls.password.hasError('required')">Please enter
+                            password!!</mat-error>
+                    </mat-form-field>
+                    <div>
+                        <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+                        <button mat-raised-button color="accent" type="button" matStepperNext>Next</button>
+                    </div>
+                </mat-step>
+                <mat-step stepControl="companyRegistration.controls.confirmPassword">
+                    <ng-template matStepLabel>Confirm Your Password</ng-template>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Confirm Password</mat-label>
+                        <input matInput placeholder="Confirm Password"
+                            [type]="confirmPasswordHide ? 'password' : 'text'" formControlName="confirmPassword"
+                            required>
+                        <button mat-icon-button matSuffix (click)="confirmPasswordHide = !confirmPasswordHide"
+                            [attr.aria-label]="'Hide password'" [attr.aria-pressed]="confirmPasswordHide">
+                            <mat-icon>{{confirmPasswordHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                        <mat-error *ngIf="companyRegistration.controls.confirmPassword.hasError('required')">Please
+                            enter confirm password!!</mat-error>
+                        <mat-error *ngIf="companyRegistration.controls.confirmPassword.hasError('mustMatch')">Confirm
+                            password doesn't match with password!!</mat-error>
+                    </mat-form-field>
+                    <div>
+                        <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+                        <button mat-raised-button color="accent" type="button" matStepperNext>Next</button>
+                    </div>
+                </mat-step>
+            </mat-card-content>
+            <mat-card-actions>
+                <mat-step>
+                    <ng-template matStepLabel>Register</ng-template>
+                    <div>
+                        <button mat-raised-button color="primary" type="reset"
+                            (click)="companyRegistration.reset()">Reset</button>
+                        <button mat-raised-button color="accent" type="submit"
+                            [disabled]="companyRegistration.invalid">Register</button>
+                    </div>
+                </mat-step>
+            </mat-card-actions>
+        </mat-vertical-stepper>
+    </form>
+
+</mat-card>
+
+<ng-template #responseField>
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>{{sucessResponse.message}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="cardContent">
+          <mat-toolbar color="#fff">
+            <mat-toolbar-row *ngFor="let data of sucessResponse.company | keyvalue">
+                {{data.key | titlecase}} :   {{data.value}}
+            </mat-toolbar-row>
+          </mat-toolbar>
+          <mat-card-actions>
+            <button mat-raised-button color="accent" type="button" (click)="sucessResponse=undefined;">Back</button>
+        </mat-card-actions>
+        </mat-card-content>
+    </mat-card>
+</ng-template>

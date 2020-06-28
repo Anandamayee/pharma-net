@@ -1,0 +1,90 @@
+<div *ngIf="showSpinner" class="mat-drawer-backdrop ng-star-inserted mat-drawer-shown">
+    <mat-spinner class="spinnerClass" strokeWidth="5"></mat-spinner>
+</div>
+
+
+<mat-tab-group mat-align-tabs="start" #tabGroup>
+    <mat-tab label="Enter Data">
+        <mat-card>
+            <form [formGroup]="drugDetails" (ngSubmit)="onSubmit(drugDetails.value)">
+                <mat-card-header>
+                    <mat-card-title>Search Drug</mat-card-title>
+                </mat-card-header>
+                <mat-vertical-stepper #stepper class="stepperVertical">
+                    <mat-card-content>
+                        <mat-step stepControl="drugName">
+                            <ng-template matStepLabel>Enter Drug Name</ng-template>
+                            <mat-form-field appearance="outline">
+                                <mat-label>Drug Name</mat-label>
+                                <input matInput placeholder="Drug Name" type="text" formControlName="drugName" required>
+                                <mat-error *ngIf="drugDetails.controls.drugName.hasError('required')">Please enter drug
+                                    name!!</mat-error>
+                            </mat-form-field>
+                            <div>
+                                <button mat-raised-button color="accent" matStepperNext type="button">Next</button>
+                            </div>
+                        </mat-step>
+                        <mat-step stepControl="serialNo">
+                            <ng-template matStepLabel>Enter Drug serialNo</ng-template>
+                            <mat-form-field appearance="outline">
+                                <mat-label>SerialNo</mat-label>
+                                <input matInput placeholder="serialNo" type="text" formControlName="serialNo" required>
+                                <mat-error *ngIf="drugDetails.controls.serialNo.hasError('required')">Please enter
+                                    serialNo!!</mat-error>
+                            </mat-form-field>
+                            <div>
+                                <button mat-raised-button color="primary" matStepperPrevious>Back</button>
+                                <button mat-raised-button color="accent" matStepperNext type="button">Next</button>
+                            </div>
+                        </mat-step>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <mat-step>
+                            <ng-template matStepLabel>View</ng-template>
+                            <div>
+                                <button mat-raised-button color="primary" (click)="drugDetails.reset()">Reset</button>
+                                <button mat-raised-button color="accent" type="submit"
+                                    [disabled]="drugDetails.invalid">View</button>
+                            </div>
+                        </mat-step>
+                    </mat-card-actions>
+                </mat-vertical-stepper>
+            </form>
+        </mat-card>
+    </mat-tab>
+    <mat-tab label="View History">
+        <mat-card>
+            <mat-card-header *ngIf="sucessResponse">
+                <mat-card-title>{{sucessResponse.message}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="cardContent">
+                <mat-accordion *ngIf="sucessResponse">
+                    <mat-expansion-panel *ngFor="let data of sucessResponse.drugHistory">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                TransactionId
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                {{data.tx_id}}
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+
+                        <mat-card-content>
+                            <mat-toolbar>
+                                <mat-toolbar-row *ngFor="let history of data.history | keyvalue">
+                                    {{history.key | titlecase}} : {{history.value}}
+                                </mat-toolbar-row>
+                            </mat-toolbar>
+                        </mat-card-content>
+                    </mat-expansion-panel>
+                </mat-accordion>
+
+                <mat-card-actions>
+                    <button mat-raised-button color="accent" type="button"
+                        (click)="tabGroup.selectedIndex=0">Back</button>
+                </mat-card-actions>
+            </mat-card-content>
+        </mat-card>
+    </mat-tab>
+
+</mat-tab-group>

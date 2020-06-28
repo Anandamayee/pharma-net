@@ -110,7 +110,7 @@ class PharmaContract extends Contract {
         let userList = await ctx.registeredCompanyList.getAllUsers()
             .catch(error => console.error(error));
         if (userList) {
-            return userList;
+            return userList.map(user=>user.value.companyCRN);
         }
         else {
             throw new Error('No result found');

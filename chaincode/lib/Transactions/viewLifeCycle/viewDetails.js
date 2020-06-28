@@ -20,7 +20,7 @@ async function viewHistory(ctx, drugName, serialNo) {
     //get Drug History
     let drugHistory = await ctx.drugList.getDrugHistory(compositeKey)
         .catch(error => console.error(error))
-    if (drugHistory) {
+    if (drugHistory && drugHistory.length!=0) {
         return drugHistory;
     }
     else {

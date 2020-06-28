@@ -1,0 +1,11 @@
+<owl-carousel-o [options]="carouselOption">
+    <ng-template carouselSlide *ngFor="let slide of slides" [id]="slide.id">
+        <mat-card class="image-Card" [ngStyle]="{background: 'url('+ slide.src + ')','background-size':'cover'}">
+            <mat-card-content>
+              <mat-card-title> 
+                  Welcome To PharmaNet
+                </mat-card-title>
+            </mat-card-content>
+          </mat-card>
+      </ng-template>
+  </owl-carousel-o>
