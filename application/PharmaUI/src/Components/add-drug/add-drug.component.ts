@@ -71,7 +71,9 @@ export class AddDrugComponent implements OnInit {
       console.error(error);
       this.showSpinner = false;
       if (error.status == 500) {
-        this.errorMessage = error.error.error.message.split('\n')[1].split('Error:')[1];
+        if(error.error.error.message.includes('\n'))
+        {this.errorMessage=error.error.error.message.split('\n')[1].split('Error:')[1];}
+        else this.errorMessage=error.error.error.message
         this.commonService.raiseSnackBar(this.errorMessage)
 
       }

@@ -1,23 +1,36 @@
-.example-container {
-    width: 100%;
-    height: 100%;
-    background: transparent;
+.mat-toolbar-row {
+    background-color: #ff4081;
 }
 
 mat-drawer-content {
     padding: 20%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    // justify-content: center;
+    padding-left: 10%;
+}
+.mat-mini-fab {
+    color: #ff4081;
+}
+.mat-drawer-container {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
 }
 .mat-drawer {
-    width: 20%;
+    width: 100%;
+    background-color: #ff4081;
+    clip-path: circle(70% at 30% -10%);
+    -webkit-clip-path: circle(70% at 30% -10%);
 }
 .role {
     a {
-        color: #ff4081;
-        font-size: 1.2em;
-        padding: 2%;
+        // color: #ff4081;
+        color: #fff;
+        font-size: 150%;
+        padding-left: 20%;
         text-decoration: none;
     }
     a:hover {
@@ -26,11 +39,18 @@ mat-drawer-content {
 }
 
 .mat-list-base .mat-list-item {
-    height: 3.5vw;
+    height: 6vw;
+    transition: all 1s ease-in-out;
 }
 .navMenuLink {
     // float: right;
     text-decoration: none;
+    color: #ff4081;
+    width:5%;
+    height:80%;
+    text-align: center;
+    align-items: center;
+    line-height: 5.5vh;
 }
 
 .mat-toolbar-row,
@@ -38,16 +58,21 @@ mat-drawer-content {
     .example-spacer {
         flex: 1 1 auto;
     }
-    .logo {
-        height: 40px;
-        width: 40px;
+    .example-spacer1 {
+        padding-right: 2%;
     }
-    
+    .logo {
+        height: 80%;
+        width: 100%;
+        border-radius: none;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    }
 }
 
-
-.snackBar{
-        background-color: white;
-        color: black;
-    
+.snackBar {
+    background-color: white;
+    color: black;
 }

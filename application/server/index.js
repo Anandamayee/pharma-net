@@ -15,6 +15,7 @@ const retailDrug = require('./module/retailDrug');
 const viewDrugDetails = require('./module/viewDrugDetails');
 const viewDrugHistory = require('./module/viewDrugHistory');
 const getAllCompanyCRNs=require('./module/getAllCompanyCRNs')
+const loginCompany=require('./module/loginCompany')
 
 // Define Express app settings
 app.use(cors());
@@ -72,7 +73,7 @@ app.post('/addDrug', (req, res) => {
 // API call to register a comapny to ledger
 
 app.post('/registerCompany', (req, res) => {
-	registerCompany.execute(req.body.companyCRN, req.body.companyName, req.body.Location, req.body.organisationRole)
+	registerCompany.execute(req.body.companyCRN, req.body.companyName, req.body.Location, req.body.organisationRole,req.body.password)
 			.then((company) => {
 				const result = {
 					status: 'success',
@@ -236,6 +237,27 @@ app.get('/viewDrugDetails', (req, res) => {
 
 app.get('/getRegisteredCompanyCRN', (req, res) => {
 	getAllCompanyCRNs.execute()
+			.then((users) => {
+				console.log('users',users);
+				const result = {
+					status: 'success',
+					message: 'users',
+					users: users
+				};
+				res.json(result);
+			})
+			.catch((e) => {
+				const result = {
+					status: 'error',
+					message: 'Failed',
+					error: e
+				};
+				res.status(500).send(result);
+			});
+});
+
+app.post('/login', (req, res) => {
+	loginCompany.execute(req.body.companyCRN, req.body.password)
 			.then((users) => {
 				console.log('users',users);
 				const result = {

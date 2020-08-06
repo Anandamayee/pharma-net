@@ -6,9 +6,11 @@
 
 const helper = require('../contractHelper');
 
-async function registerCompany(companyCRN, companyName, Location, organisationRole) {
+async function registerCompany(companyCRN, companyName, Location, organisationRole,userPassword) {
 
 	try {
+
+		// await helper.createEnrollIdentity(companyCRN, userPassword, organisationRole.toLowerCase());
 
 		const pharmanetContract = await helper.getContractInstance(`${organisationRole.toUpperCase()}_ADMIN`,organisationRole.toLowerCase(),organisationRole.toLowerCase());
 

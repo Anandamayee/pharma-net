@@ -1,5 +1,5 @@
 import { ConfigServer } from './../../Services/configServer';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { MustMatch } from 'src/Validators/mustMatch';
 import {MatSnackBar} from '@angular/material/snack-bar';
@@ -45,7 +45,9 @@ export class UserRegistrationComponent implements OnInit {
       }, error => { 
         this.showSpinner=false;
         if(error.status == 500){
-          this.errorMessage=error.error.error.message.split('\n')[1].split('Error:')[1];
+          if(error.error.error.message.includes('\n'))
+          {this.errorMessage=error.error.error.message.split('\n')[1].split('Error:')[1];}
+          else this.errorMessage=error.error.error.message
           this.commonService.raiseSnackBar(this.errorMessage)
           
         }

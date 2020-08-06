@@ -1,53 +1,24 @@
-<mat-toolbar color="default">
+<mat-toolbar>
   <mat-toolbar-row>
-      <button mat-mini-fab  (click)="drawer.toggle()"> <mat-icon>menu</mat-icon></button>
+      <button mat-fab color="basic"  (click)="drawer.toggle()"> <mat-icon>menu</mat-icon></button>
       <span class="example-spacer"></span>
-      <a  mat-raised-button color="accent" class="navMenuLink" routerLink="/login" routerLinkActive="active" >SignIn</a>
-      <a  mat-raised-button hidden="true" color="accent" class="navMenuLink" (click)="logOut()" >LogOut</a>
-      <a  mat-button  arial-hidden="false" routerLink="/dashboard" routerLinkActive="active" >
-        <img class="mat-icon notranslate material-icons mat-icon-no-color logo" src="../assets/logo.png"/>
+      <a  mat-raised-button  class="navMenuLink" routerLink="/login" routerLinkActive="active" >SignIn</a>
+      <a  mat-raised-button hidden="true"  class="navMenuLink" (click)="logOut()" >LogOut</a>
+      <span class="example-spacer1"></span>
+      <a  mat-fab color="default"  arial-hidden="false" routerLink="/dashboard" routerLinkActive="active" >
+        <img  class="logo" src="../assets/logo.png"/>
       </a> 
   </mat-toolbar-row>
 </mat-toolbar>
-<mat-drawer-container class="example-container" >
+<mat-drawer-container >
   <mat-drawer #drawer mode="over">
-    <mat-list class="role">
-      <mat-list-item matRipple  matRippleCentered="true" matRippleUnbounded="true" role="listitem">
-        <a  routerLink="/userRegistration" routerLinkActive="active" (click)="drawer.toggle()">Register Company</a>
+    <mat-list class="role" >
+      <mat-list-item [@listAnimation]="drawer.opened ? 'opened':'closed'" *ngFor="let router of routerList"   role="listitem">
+        <a [routerLink]="router.routerLink" routerLinkActive="active" (click)="drawer.toggle()">{{router.routerName}}</a>
       </mat-list-item>
-      <mat-divider ></mat-divider>
-      <mat-list-item matRipple matRippleCentered="true" matRippleUnbounded="true" role="listitem">
-        <a  routerLink="/addDrug" routerLinkActive="active" (click)="drawer.toggle()">Add a Drug</a>
-      </mat-list-item>
-      <mat-divider ></mat-divider>
-      <mat-list-item matRipple matRippleCentered="true" matRippleUnbounded="true" role="listitem">
-        <a  routerLink="/createPO" routerLinkActive="active" (click)="drawer.toggle()">Create PO</a>
-      </mat-list-item>
-      <mat-divider ></mat-divider>
-      <mat-list-item matRipple matRippleCentered="true" matRippleUnbounded="true" role="listitem">
-        <a routerLink="/createShipment" routerLinkActive="active" (click)="drawer.toggle()">Create Shipment</a>
-      </mat-list-item>
-      <mat-divider ></mat-divider>
-      <mat-list-item matRipple matRippleCentered="true" matRippleUnbounded="true" role="listitem">
-        <a  routerLink="/updateShipment" routerLinkActive="active" (click)="drawer.toggle()">Update Shipment</a>
-      </mat-list-item>
-      <mat-divider ></mat-divider>
-      <mat-list-item matRipple matRippleCentered="true" matRippleUnbounded="true" role="listitem">
-        <a  routerLink="/retailDrug" routerLinkActive="active" (click)="drawer.toggle()">Retail</a>
-      </mat-list-item>
-      <mat-divider ></mat-divider>
-      <mat-list-item matRipple matRippleCentered="true" matRippleUnbounded="true" role="listitem">
-        <a  routerLink="/viewDrugHistory" routerLinkActive="active" (click)="drawer.toggle()">View Drug History</a>
-      </mat-list-item>
-      <mat-divider ></mat-divider>
-      <mat-list-item matRipple matRippleCentered="true" matRippleUnbounded="true" role="listitem">
-        <a  routerLink="/viewDrugDetails" routerLinkActive="active" (click)="drawer.toggle()">View Drug Details</a>
-      </mat-list-item>
-      <mat-divider ></mat-divider>
     </mat-list>
   </mat-drawer>
   <router-outlet></router-outlet>
 </mat-drawer-container>
-
 
 

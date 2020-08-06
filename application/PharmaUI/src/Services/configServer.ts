@@ -21,6 +21,9 @@ export class ConfigServer{
     public registerCompany(companyInfo){
         return this.httpClient.post(`${this.REST_API_SERVER}/registerCompany`,companyInfo).pipe(catchError(this.handleError));
     }
+    public loginCompany(companyInfo){
+        return this.httpClient.post(`${this.REST_API_SERVER}/login`,companyInfo).pipe(catchError(this.handleError));
+    }
     public addDrug(drugInfo){
         return this.httpClient.post(`${this.REST_API_SERVER}/addDrug`,drugInfo).pipe(catchError(this.handleError));
     }
