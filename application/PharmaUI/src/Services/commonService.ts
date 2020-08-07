@@ -12,7 +12,7 @@ export class CommonService{
 
     raiseSnackBar(errorMessage){
         this.snackBar.open(errorMessage,'Dismiss',{
-            duration:500000,
+            duration:5000,
             horizontalPosition:"center",
             verticalPosition:"top",
             panelClass:["snackBarCustom"]
