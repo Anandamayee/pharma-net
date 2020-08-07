@@ -1,32 +1,11 @@
-button {
-    margin-right: 2%;
-    width: 5vw;
-}
+
 .mat-form-field {
     width: 40%;
 }
-.stepperVertical {
-    width: 60%;
-    margin-left: 20%;
-    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
-        0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+button {
+    margin-right: 2%;
 }
-.mat-card {
-    box-shadow: none;
-    margin: 2%;
-}
-:host ::ng-deep.mat-form-field-appearance-outline .mat-form-field-wrapper {
-    margin: 1em 0;
-}
-.mat-error {
-    font-size: 1.3em;
-}
-.mat-card-header {
-    justify-content: center;
-    .mat-card-title {
-        font-size: 3em;
-    }
-}
+
 .removeButton{
     width:0%;
     margin: 0%;
@@ -39,30 +18,5 @@ button {
     min-width: 20%;
 }
 
-.spinnerClass {
-    position: fixed;
-    z-index: 999;
-    height: 2em;
-    width: 2em;
-    overflow: visible;
-    margin: auto;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-}
 
 
-.cardContent{
-    @extend .stepperVertical;
-    display: flex;
-    flex-flow: column;
-    background: #ffff;
-    margin-top:2%;
-    .mat-toolbar{
-        background: #ffff;
-    }
-    .mat-card-actions{
-        margin: auto;
-    }
-}

@@ -11,8 +11,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 
 .snackBarCustom{
-    background: #ff4081;
-    color: white;
+    background: #3f51b5;
+    color: #fff;
+    max-width:50vw !important;
     .mat-simple-snackbar{
         font-weight: 500;
     }
@@ -20,6 +21,58 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
         font-weight: 600;
     }
     .mat-simple-snackbar-action{
-        color: white;
+        color: #fff;
     }
+}
+
+.mat-card {
+    box-shadow: none;
+    margin: 2%;
+}
+:host ::ng-deep.mat-form-field-appearance-outline .mat-form-field-wrapper {
+    margin: 1em 0;
+}
+.mat-error {
+    font-size: 100%;
+}
+.mat-card-header {
+    justify-content: center;
+    .mat-card-title {
+        font-size: 180%;
+    }
+}
+.stepperVertical {
+    width: 60%;
+    margin-left: 20%;
+    box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+        0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+}
+
+.cardContent{
+    @extend .stepperVertical;
+    display: flex;
+    flex-flow: column;
+    background: #ffff;
+    margin-top:2%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    .mat-toolbar{
+        background: #ffff;
+    }
+    .mat-card-actions{
+        margin: auto;
+        text-align: center;
+    }
+}
+.spinnerClass {
+    position: fixed;
+    z-index: 999;
+    height: 2em;
+    width: 2em;
+    overflow: visible;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
