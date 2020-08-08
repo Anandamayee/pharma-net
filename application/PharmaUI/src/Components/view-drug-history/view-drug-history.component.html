@@ -52,7 +52,7 @@
             </form>
         </mat-card>
     </mat-tab>
-    <mat-tab label="View History">
+    <mat-tab label="View History" [disabled]="!sucessResponse">
         <mat-card>
             <mat-card-header *ngIf="sucessResponse">
                 <mat-card-title>{{sucessResponse.message}}</mat-card-title>
