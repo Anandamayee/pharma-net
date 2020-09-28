@@ -22,7 +22,9 @@ services:
   ca.manufacturer.pharma-network.com:
     image: hyperledger/fabric-ca:latest
     environment:
-      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca
+      - FABRIC_CA_CLIENT_HOME=$FABRIC_CA_HOME/fabric-ca-client
+      - FABRIC_CA_SERVER_HOME=$FABRIC_CA_HOME/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca.manufacturer.pharma-network.com
       - FABRIC_CA_SERVER_TLS_ENABLED=false
       # - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.manufacturer.pharma-network.com-cert.pem
@@ -39,7 +41,9 @@ services:
   ca.retailer.pharma-network.com:
     image: hyperledger/fabric-ca:latest
     environment:
-      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca
+      - FABRIC_CA_CLIENT_HOME=$FABRIC_CA_HOME/fabric-ca-client
+      - FABRIC_CA_SERVER_HOME=$FABRIC_CA_HOME/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca.retailer.pharma-network.com
       - FABRIC_CA_SERVER_TLS_ENABLED=false
       # - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.retailer.pharma-network.com-cert.pem
@@ -56,7 +60,9 @@ services:
   ca.transporter.pharma-network.com:
     image: hyperledger/fabric-ca:latest
     environment:
-      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca
+      - FABRIC_CA_CLIENT_HOME=$FABRIC_CA_HOME/fabric-ca-client
+      - FABRIC_CA_SERVER_HOME=$FABRIC_CA_HOME/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca.transporter.pharma-network.com
       - FABRIC_CA_SERVER_TLS_ENABLED=false
       # - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.transporter.pharma-network.com-cert.pem
@@ -74,7 +80,9 @@ services:
   ca.consumer.pharma-network.com:
     image: hyperledger/fabric-ca:latest
     environment:
-      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca
+      - FABRIC_CA_CLIENT_HOME=$FABRIC_CA_HOME/fabric-ca-client
+      - FABRIC_CA_SERVER_HOME=$FABRIC_CA_HOME/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca.consumer.pharma-network.com
       - FABRIC_CA_SERVER_TLS_ENABLED=false
       # - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.consumer.pharma-network.com-cert.pem
@@ -91,7 +99,9 @@ services:
   ca.distributor.pharma-network.com:
     image: hyperledger/fabric-ca:latest
     environment:
-      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca-server
+      - FABRIC_CA_HOME=/etc/hyperledger/fabric-ca
+      - FABRIC_CA_CLIENT_HOME=$FABRIC_CA_HOME/fabric-ca-client
+      - FABRIC_CA_SERVER_HOME=$FABRIC_CA_HOME/fabric-ca-server
       - FABRIC_CA_SERVER_CA_NAME=ca.distributor.pharma-network.com
       - FABRIC_CA_SERVER_TLS_ENABLED=false
       # - FABRIC_CA_SERVER_TLS_CERTFILE=/etc/hyperledger/fabric-ca-server-config/ca.distributor.pharma-network.com-cert.pem

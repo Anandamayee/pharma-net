@@ -18,12 +18,24 @@ const getAllCompanyCRNs=require('./module/getAllCompanyCRNs')
 const loginCompany=require('./module/loginCompany')
 
 // Define Express app settings
-app.use(cors());
+
+corsOptions={
+    origin:(origin,callback)=>{
+        if(origin!='localhost://3000') callback(new Error('Not allowed'))
+        callback(null,true)
+    },
+    optionSuccessStatus:200,
+    methods:['GET','POST','PATCH','DELETE'],
+    maxAge:2
+}
+
+app.options("*",cors(corsOptions));
+
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.set('title', 'Pharma App');
 
-app.get('/', (req, res) => res.send('hello world'));
+app.get('/', (req, res) => res.send('Wellcome to PharmaNet!!!'));
 
 // Create identity of all the organizations using CA,private and public key
 app.post('/addToWallet', (req, res) => {

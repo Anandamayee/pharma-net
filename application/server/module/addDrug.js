@@ -19,14 +19,14 @@ async function addDrug(drugName, serialNo, mfgDate, expDate, companyCRN) {
 		const drugBuffer = await pharmanetContract.submitTransaction('addDrug', drugName, serialNo, mfgDate, expDate, companyCRN);
 
 		// listen to addDrug event
-		const listener=await pharmanetContract.addContractListener('addDrug', 'addDrug', (err, event, blkNum, txid, status, options) => {
-			console.log('event received', status, event, blkNum, txid);  
-			if (err) {
-			   console.error('error', err);
-			} else if (status && status === 'VALID') {
-			   console.log("payload ",event.payload.toString());
-			}
-		})
+		// const listener=await pharmanetContract.addContractListener('addDrug', 'addDrug', (err, event, blkNum, txid, status, options) => {
+		// 	console.log('event received', status, event, blkNum, txid);  
+		// 	if (err) {
+		// 	   console.error('error', err);
+		// 	} else if (status && status === 'VALID') {
+		// 	   console.log("payload ",event.payload.toString());
+		// 	}
+		// })
 
 		// process response
 		console.log('.....Processing Add Drug  Transaction Response \n\n');

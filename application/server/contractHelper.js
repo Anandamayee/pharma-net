@@ -41,6 +41,9 @@ function disconnect() {
 	console.log('.....Disconnecting from Fabric Gateway');
 	gateway.disconnect();
 }
+
+
+
 async function createEnrollIdentity(username, userPassword, identityFile) {
 	try {
 		// A wallet is where the credentials to be used for this transaction exist
