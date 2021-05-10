@@ -252,6 +252,7 @@ services:
     tty: true
     environment:
       - GOPATH=/opt/gopath
+      - GODEBUG=netdns=go
       - CORE_VM_ENDPOINT=unix:///host/var/run/docker.sock
       - FABRIC_LOGGING_SPEC=INFO
       - CORE_PEER_ID=chaincode
