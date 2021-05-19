@@ -7,9 +7,9 @@
         <mat-card-title>Register Your Company</mat-card-title>
     </mat-card-header>
     <form [formGroup]="companyRegistration" (ngSubmit)="showSpinner=true;onSubmit(companyRegistration.value)">
-        <mat-vertical-stepper #stepper class="stepperVertical">
+        <!-- <mat-vertical-stepper #stepper class="stepperVertical"> -->
             <mat-card-content>
-                <mat-step stepControl="companyRegistration.controls.companyName">
+                <!-- <mat-step stepControl="companyRegistration.controls.companyName"> -->
                     <ng-template matStepLabel>Enter Your Company Name</ng-template>
                     <mat-form-field appearance="outline">
                         <mat-label>Comapany Name</mat-label>
@@ -17,11 +17,11 @@
                         <mat-error *ngIf="companyRegistration.controls.companyName.hasError('required')">Please enter
                             company name!!</mat-error>
                     </mat-form-field>
-                    <div>
+                    <!-- <div>
                         <button mat-raised-button color="accent" type="button" matStepperNext>Next</button>
                     </div>
-                </mat-step>
-                <mat-step stepControl="companyRegistration.controls.companyCRN">
+                </mat-step> -->
+                <!-- <mat-step stepControl="companyRegistration.controls.companyCRN"> -->
                     <ng-template matStepLabel>Enter Your Company CRN</ng-template>
                     <mat-form-field appearance="outline">
                         <mat-label>Comapany CRN</mat-label>
@@ -29,12 +29,12 @@
                         <mat-error *ngIf="companyRegistration.controls.companyCRN.hasError('required')">Please enter
                             CRN!!</mat-error>
                     </mat-form-field>
-                    <div>
+                    <!-- <div>
                         <button mat-raised-button color="primary" matStepperPrevious>Back</button>
                         <button mat-raised-button color="accent" type="button" matStepperNext>Next</button>
                     </div>
-                </mat-step>
-                <mat-step stepControl="companyRegistration.controls.Location">
+                </mat-step> -->
+                <!-- <mat-step stepControl="companyRegistration.controls.Location"> -->
                     <ng-template matStepLabel>Enter Your Company Location</ng-template>
                     <mat-form-field appearance="outline">
                         <mat-label>Location</mat-label>
@@ -42,12 +42,12 @@
                         <mat-error *ngIf="companyRegistration.controls.Location.hasError('required')">Please enter
                             Location!!</mat-error>
                     </mat-form-field>
-                    <div>
+                    <!-- <div>
                         <button mat-raised-button color="primary" matStepperPrevious>Back</button>
                         <button mat-raised-button color="accent" type="button" matStepperNext>Next</button>
                     </div>
-                </mat-step>
-                <mat-step stepControl="companyRegistration.controls.organisationRole">
+                </mat-step> -->
+                <!-- <mat-step stepControl="companyRegistration.controls.organisationRole"> -->
                     <ng-template matStepLabel>Enter Organisation Role</ng-template>
                     <mat-form-field appearance="outline">
                         <mat-label>Organisation Role</mat-label>
@@ -59,12 +59,12 @@
                         <mat-error *ngIf="companyRegistration.controls.organisationRole.hasError('required')">Please
                             select a organisationRole!!</mat-error>
                     </mat-form-field>
-                    <div>
+                    <!-- <div>
                         <button mat-raised-button color="primary" matStepperPrevious>Back</button>
                         <button mat-raised-button color="accent" type="button" matStepperNext>Next</button>
                     </div>
-                </mat-step>
-                <mat-step stepControl="companyRegistration.controls.password">
+                </mat-step> -->
+                <!-- <mat-step stepControl="companyRegistration.controls.password"> -->
                     <ng-template matStepLabel>Enter Your Password</ng-template>
                     <mat-form-field appearance="outline">
                         <mat-label>Password</mat-label>
@@ -77,12 +77,12 @@
                         <mat-error *ngIf="companyRegistration.controls.password.hasError('required')">Please enter
                             password!!</mat-error>
                     </mat-form-field>
-                    <div>
+                    <!-- <div>
                         <button mat-raised-button color="primary" matStepperPrevious>Back</button>
                         <button mat-raised-button color="accent" type="button" matStepperNext>Next</button>
                     </div>
-                </mat-step>
-                <mat-step stepControl="companyRegistration.controls.confirmPassword">
+                </mat-step> -->
+                <!-- <mat-step stepControl="companyRegistration.controls.confirmPassword"> -->
                     <ng-template matStepLabel>Confirm Your Password</ng-template>
                     <mat-form-field appearance="outline">
                         <mat-label>Confirm Password</mat-label>
@@ -98,14 +98,14 @@
                         <mat-error *ngIf="companyRegistration.controls.confirmPassword.hasError('mustMatch')">Confirm
                             password doesn't match with password!!</mat-error>
                     </mat-form-field>
-                    <div>
+                    <!-- <div>
                         <button mat-raised-button color="primary" matStepperPrevious>Back</button>
                         <button mat-raised-button color="accent" type="button" matStepperNext>Next</button>
                     </div>
-                </mat-step>
+                </mat-step> -->
             </mat-card-content>
             <mat-card-actions>
-                <mat-step>
+                <!-- <mat-step> -->
                     <ng-template matStepLabel>Register</ng-template>
                     <div>
                         <button mat-raised-button color="primary" type="reset"
@@ -113,9 +113,9 @@
                         <button mat-raised-button color="accent" type="submit"
                             [disabled]="companyRegistration.invalid">Register</button>
                     </div>
-                </mat-step>
+                <!-- </mat-step> -->
             </mat-card-actions>
-        </mat-vertical-stepper>
+        <!-- </mat-vertical-stepper> -->
     </form>
 
 </mat-card>

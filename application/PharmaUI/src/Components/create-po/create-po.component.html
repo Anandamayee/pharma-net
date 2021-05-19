@@ -7,9 +7,9 @@
         <mat-card-title>Create Order</mat-card-title>
     </mat-card-header>
     <form [formGroup]="createPO" (ngSubmit)="onSubmit(createPO.value)">
-    <mat-vertical-stepper #stepper class="stepperVertical">
+    <!-- <mat-vertical-stepper #stepper class="stepperVertical"> -->
         <mat-card-content>
-                <mat-step stepControl="drugName">
+                <!-- <mat-step stepControl="drugName"> -->
                     <ng-template matStepLabel>Enter Drug Name</ng-template>
                     <mat-form-field appearance="outline">
                         <mat-label>Drug Name</mat-label>
@@ -17,11 +17,11 @@
                         <mat-error *ngIf="createPO.controls.drugName.hasError('required')">Please enter drug
                             name!!</mat-error>
                     </mat-form-field>
-                    <div>
+                    <!-- <div>
                         <button mat-raised-button color="accent" matStepperNext type="button">Next</button>
                     </div>
-                </mat-step>
-                <mat-step stepControl="sellerCRN">
+                </mat-step> -->
+                <!-- <mat-step stepControl="sellerCRN"> -->
                     <ng-template matStepLabel>Enter  Seller CRN</ng-template>
                     <mat-form-field appearance="outline">
                         <mat-label>Seller CRN</mat-label>
@@ -35,12 +35,12 @@
                         <mat-error *ngIf="createPO.controls.sellerCRN.hasError('required')">Please enter seller CRN!!
                         </mat-error>
                     </mat-form-field>
-                    <div>
+                    <!-- <div>
                         <button mat-raised-button color="primary" matStepperPrevious>Back</button>
                         <button mat-raised-button color="accent" matStepperNext type="button">Next</button>
                     </div>
-                </mat-step>
-                <mat-step stepControl="buyerCRN">
+                </mat-step> -->
+                <!-- <mat-step stepControl="buyerCRN"> -->
                     <ng-template matStepLabel>Enter  Buyer CRN</ng-template>
                     <mat-form-field appearance="outline">
                         <mat-label>Buyer CRN</mat-label>
@@ -54,12 +54,12 @@
                         <mat-error *ngIf="createPO.controls.buyerCRN.hasError('required')">Please enter buyer CRN!!
                         </mat-error>
                     </mat-form-field>
-                    <div>
+                    <!-- <div>
                         <button mat-raised-button color="primary" matStepperPrevious>Back</button>
                         <button mat-raised-button color="accent" matStepperNext type="button">Next</button>
                     </div>
-                </mat-step>
-                <mat-step stepControl="quantity">
+                </mat-step> -->
+                <!-- <mat-step stepControl="quantity"> -->
                     <ng-template matStepLabel>Enter Drug Quantity</ng-template>
                     <mat-form-field appearance="outline">
                         <mat-label>Drug Quantity</mat-label>
@@ -67,24 +67,24 @@
                         <mat-error *ngIf="createPO.controls.quantity.hasError('required')">Please enter drug
                             quantity!!</mat-error>
                     </mat-form-field>
-                    <div>
+                    <!-- <div>
                         <button mat-raised-button color="primary" matStepperPrevious>Back</button>
                         <button mat-raised-button color="accent" matStepperNext type="button">Next</button>
                     </div>
-                </mat-step>
+                </mat-step> -->
               
         </mat-card-content>
         <mat-card-actions>
-            <mat-step>
+            <!-- <mat-step> -->
                 <ng-template matStepLabel>Create</ng-template>
                 <div>
                     <button mat-raised-button color="primary" (click)="createPO.reset()">Reset</button>
                     <button mat-raised-button color="accent" type="submit"
                         [disabled]="createPO.invalid">Create Order</button>
                 </div>
-            </mat-step>
+            <!-- </mat-step> -->
         </mat-card-actions>
-    </mat-vertical-stepper>
+    <!-- </mat-vertical-stepper> -->
 </form>
 
 </mat-card>

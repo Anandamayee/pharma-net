@@ -7,9 +7,9 @@
         <mat-card-title>Retail Drug</mat-card-title>
     </mat-card-header>
     <form [formGroup]="retailDrug" (ngSubmit)="onSubmit(retailDrug.value)">
-    <mat-vertical-stepper #stepper class="stepperVertical">
+    <!-- <mat-vertical-stepper #stepper class="stepperVertical"> -->
         <mat-card-content>
-                <mat-step stepControl="drugName">
+                <!-- <mat-step stepControl="drugName"> -->
                     <ng-template matStepLabel>Enter Drug Name</ng-template>
                     <mat-form-field appearance="outline">
                         <mat-label>Drug Name</mat-label>
@@ -17,11 +17,11 @@
                         <mat-error *ngIf="retailDrug.controls.drugName.hasError('required')">Please enter drug
                             name!!</mat-error>
                     </mat-form-field>
-                    <div>
+                    <!-- <div>
                         <button mat-raised-button color="accent" matStepperNext type="button">Next</button>
                     </div>
-                </mat-step>
-                <mat-step stepControl="sellerCRN">
+                </mat-step> -->
+                <!-- <mat-step stepControl="sellerCRN"> -->
                     <ng-template matStepLabel>Enter Your Seller CRN</ng-template>
                     <mat-form-field appearance="outline">
                         <mat-label>Seller CRN</mat-label>
@@ -35,12 +35,12 @@
                         <mat-error *ngIf="retailDrug.controls.sellerCRN.hasError('required')">Please enter CRN!!
                         </mat-error>
                     </mat-form-field>
-                    <div>
+                    <!-- <div>
                         <button mat-raised-button color="primary" matStepperPrevious>Back</button>
                         <button mat-raised-button color="accent" matStepperNext type="button">Next</button>
                     </div>
-                </mat-step>
-                <mat-step stepControl="serialNo">
+                </mat-step> -->
+                <!-- <mat-step stepControl="serialNo"> -->
                     <ng-template matStepLabel>Enter Drug serialNo</ng-template>
                     <mat-form-field appearance="outline">
                         <mat-label>SerialNo</mat-label>
@@ -48,12 +48,12 @@
                         <mat-error *ngIf="retailDrug.controls.serialNo.hasError('required')">Please enter
                             serialNo!!</mat-error>
                     </mat-form-field>
-                    <div>
+                    <!-- <div>
                         <button mat-raised-button color="primary" matStepperPrevious>Back</button>
                         <button mat-raised-button color="accent" matStepperNext>Next</button>
                     </div>
-                </mat-step>
-                <mat-step stepControl="customerAadhar">
+                </mat-step> -->
+                <!-- <mat-step stepControl="customerAadhar"> -->
                     <ng-template matStepLabel>Enter Customer Aadhar </ng-template>
                     <mat-form-field appearance="outline">
                         <mat-label>Customer Aadhar</mat-label>
@@ -61,23 +61,23 @@
                         <mat-error *ngIf="retailDrug.controls.customerAadhar.hasError('required')">Please enter
                             customer Aadhar!!</mat-error>
                     </mat-form-field>
-                    <div>
+                    <!-- <div>
                         <button mat-raised-button color="primary" matStepperPrevious>Back</button>
                         <button mat-raised-button color="accent" matStepperNext type="button">Next</button>
                     </div>
-                </mat-step>
+                </mat-step> -->
         </mat-card-content>
         <mat-card-actions>
-            <mat-step>
+            <!-- <mat-step> -->
                 <ng-template matStepLabel>Retail</ng-template>
                 <div>
                     <button mat-raised-button color="primary" (click)="retailDrug.reset()">Reset</button>
                     <button mat-raised-button color="accent" type="submit"
                         [disabled]="retailDrug.invalid">Retail</button>
                 </div>
-            </mat-step>
+            <!-- </mat-step> -->
         </mat-card-actions>
-    </mat-vertical-stepper>
+    <!-- </mat-vertical-stepper> -->
 </form>
 </mat-card>
 

@@ -19,7 +19,7 @@ const loginCompany=require('./module/loginCompany')
 
 // Define Express app settings
 
-corsOptions={
+const corsOptions ={
     origin:(origin,callback)=>{
         if(origin!='localhost://3000') callback(new Error('Not allowed'))
         callback(null,true)
@@ -29,13 +29,13 @@ corsOptions={
     maxAge:2
 }
 
-app.options("*",cors(corsOptions));
+app.use(cors());
 
 app.use(express.json()); // for parsing application/json
 app.use(express.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 app.set('title', 'Pharma App');
 
-app.get('/', (req, res) => res.send('Wellcome to PharmaNet!!!'));
+
 
 // Create identity of all the organizations using CA,private and public key
 app.post('/addToWallet', (req, res) => {
@@ -288,7 +288,7 @@ app.post('/login', (req, res) => {
 				res.status(500).send(result);
 			});
 });
-
+app.get('/', (req, res) => res.send('Wellcome to PharmaNet!!!'));
 
 
 app.listen(port, () => console.log(`Distributed Pharma App listening on port ${port}!`));

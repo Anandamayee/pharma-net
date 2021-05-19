@@ -7,9 +7,9 @@
         <mat-card-title>Register Drug Deatails</mat-card-title>
     </mat-card-header>
     <form [formGroup]="drugRegistration" (ngSubmit)="showSpinner=true;onSubmit(drugRegistration.value)">
-        <mat-vertical-stepper #stepper class="stepperVertical">
+        <!-- <mat-vertical-stepper #stepper class="stepperVertical"> -->
             <mat-card-content>
-                <mat-step stepControl="drugName">
+                <!-- <mat-step stepControl="drugName"> -->
                     <ng-template matStepLabel>Enter Drug Name</ng-template>
                     <mat-form-field appearance="outline">
                         <mat-label>Drug Name</mat-label>
@@ -17,11 +17,11 @@
                         <mat-error *ngIf="drugRegistration.controls.drugName.hasError('required')">Please enter drug
                             name!!</mat-error>
                     </mat-form-field>
-                    <div>
+                    <!-- <div>
                         <button mat-raised-button color="accent" matStepperNext type="button">Next</button>
-                    </div>
-                </mat-step>
-                <mat-step stepControl="companyCRN">
+                    </div> -->
+                <!-- </mat-step> -->
+                <!-- <mat-step stepControl="companyCRN"> -->
                     <ng-template matStepLabel>Enter Your Company CRN</ng-template>
                     <mat-form-field appearance="outline">
                         <mat-label>Company CRN</mat-label>
@@ -35,12 +35,12 @@
                         <mat-error *ngIf="drugRegistration.controls.companyCRN.hasError('required')">Please enter CRN!!
                         </mat-error>
                     </mat-form-field>
-                    <div>
+                    <!-- <div>
                         <button mat-raised-button color="primary" matStepperPrevious>Back</button>
                         <button mat-raised-button color="accent" matStepperNext type="button">Next</button>
                     </div>
-                </mat-step>
-                <mat-step stepControl="serialNo">
+                </mat-step> -->
+                <!-- <mat-step stepControl="serialNo"> -->
                     <ng-template matStepLabel>Enter Drug serialNo</ng-template>
                     <mat-form-field appearance="outline">
                         <mat-label>SerialNo</mat-label>
@@ -48,12 +48,12 @@
                         <mat-error *ngIf="drugRegistration.controls.serialNo.hasError('required')">Please enter
                             serialNo!!</mat-error>
                     </mat-form-field>
-                    <div>
+                    <!-- <div>
                         <button mat-raised-button color="primary" matStepperPrevious>Back</button>
                         <button mat-raised-button color="accent" matStepperNext type="button">Next</button>
                     </div>
-                </mat-step>
-                <mat-step stepControl="mfgDate">
+                </mat-step> -->
+                <!-- <mat-step stepControl="mfgDate"> -->
                     <ng-template matStepLabel>Enter Manufacture Date</ng-template>
                     <mat-form-field appearance="outline">
                         <mat-label>Manufacture Date</mat-label>
@@ -63,12 +63,12 @@
                         <mat-error *ngIf="drugRegistration.controls.mfgDate.hasError('required')">Please select a
                             Manufacture Date!!</mat-error>
                     </mat-form-field>
-                    <div>
+                    <!-- <div>
                         <button mat-raised-button color="primary" matStepperPrevious>Back</button>
                         <button mat-raised-button color="accent" matStepperNext type="button">Next</button>
                     </div>
-                </mat-step>
-                <mat-step stepControl="expDate">
+                </mat-step> -->
+                <!-- <mat-step stepControl="expDate"> -->
                     <ng-template matStepLabel>Enter Expiration Date</ng-template>
                     <mat-form-field appearance="outline">
                         <mat-label>Expiration Date</mat-label>
@@ -81,14 +81,14 @@
                             should greater than
                             Manufacture Date!!</mat-error>
                     </mat-form-field>
-                    <div>
+                    <!-- <div>
                         <button mat-raised-button color="primary" matStepperPrevious>Back</button>
                         <button mat-raised-button color="accent" matStepperNext type="button">Next</button>
                     </div>
-                </mat-step>
+                </mat-step> -->
             </mat-card-content>
             <mat-card-actions>
-                <mat-step>
+                <!-- <mat-step> -->
                     <ng-template matStepLabel>Register</ng-template>
                     <div >
                         <button mat-raised-button color="primary" type="reset"
@@ -96,9 +96,9 @@
                         <button mat-raised-button color="accent" type="submit"
                             [disabled]="drugRegistration.invalid">Register</button>
                     </div>
-                </mat-step>
+                <!-- </mat-step> -->
             </mat-card-actions>
-        </mat-vertical-stepper>
+        <!-- </mat-vertical-stepper> -->
     </form>
 </mat-card>
 

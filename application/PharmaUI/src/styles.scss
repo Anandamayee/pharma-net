@@ -41,6 +41,16 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
         font-size: 180%;
     }
 }
+.mat-card-actions, .mat-card-subtitle, .mat-card-content{
+    margin-bottom: 16px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 2%;
+    text-align: center;
+}
+.mat-form-field {
+    width: 60%;
+}
 .stepperVertical {
     width: 60%;
     margin-left: 20%;

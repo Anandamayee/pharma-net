@@ -7,9 +7,9 @@
         <mat-card-title>Update Shipment</mat-card-title>
     </mat-card-header>
     <form [formGroup]="updateShipment" (ngSubmit)="onSubmit(updateShipment.value)">
-    <mat-vertical-stepper #stepper class="stepperVertical">
+    <!-- <mat-vertical-stepper #stepper class="stepperVertical"> -->
         <mat-card-content>
-                <mat-step stepControl="drugName">
+                <!-- <mat-step stepControl="drugName"> -->
                     <ng-template matStepLabel>Enter Drug Name</ng-template>
                     <mat-form-field appearance="outline">
                         <mat-label>Drug Name</mat-label>
@@ -17,11 +17,11 @@
                         <mat-error *ngIf="updateShipment.controls.drugName.hasError('required')">Please enter drug
                             name!!</mat-error>
                     </mat-form-field>
-                    <div>
+                    <!-- <div>
                         <button mat-raised-button color="accent" matStepperNext type="button">Next</button>
                     </div>
-                </mat-step>
-                <mat-step stepControl="transporterCRN">
+                </mat-step> -->
+                <!-- <mat-step stepControl="transporterCRN"> -->
                     <ng-template matStepLabel>Enter transporter CRN</ng-template>
                     <mat-form-field appearance="outline">
                         <mat-label>Transporter CRN</mat-label>
@@ -35,12 +35,12 @@
                         <mat-error *ngIf="updateShipment.controls.transporterCRN.hasError('required')">Please enter transporter CRN!!
                         </mat-error>
                     </mat-form-field>
-                    <div>
+                    <!-- <div>
                         <button mat-raised-button color="primary" matStepperPrevious>Back</button>
                         <button mat-raised-button color="accent" matStepperNext type="button">Next</button>
                     </div>
-                </mat-step>
-                <mat-step stepControl="buyerCRN">
+                </mat-step> -->
+                <!-- <mat-step stepControl="buyerCRN"> -->
                     <ng-template matStepLabel>Enter  Buyer CRN</ng-template>
                     <mat-form-field appearance="outline">
                         <mat-label>Buyer CRN</mat-label>
@@ -54,23 +54,23 @@
                         <mat-error *ngIf="updateShipment.controls.buyerCRN.hasError('required')">Please enter buyer CRN!!
                         </mat-error>
                     </mat-form-field>
-                    <div>
+                    <!-- <div>
                         <button mat-raised-button color="primary" matStepperPrevious>Back</button>
                         <button mat-raised-button color="accent" matStepperNext type="button">Next</button>
                     </div>
-                </mat-step>
+                </mat-step> -->
         </mat-card-content>
         <mat-card-actions>
-            <mat-step>
+            <!-- <mat-step> -->
                 <ng-template matStepLabel>Update</ng-template>
                 <div>
                     <button mat-raised-button color="primary" (click)="updateShipment.reset()">Reset</button>
                     <button mat-raised-button color="accent" type="submit"
                         [disabled]="updateShipment.invalid">Update</button>
                 </div>
-            </mat-step>
+            <!-- </mat-step> -->
         </mat-card-actions>
-    </mat-vertical-stepper>
+    <!-- </mat-vertical-stepper> -->
 </form>
 </mat-card>
 
